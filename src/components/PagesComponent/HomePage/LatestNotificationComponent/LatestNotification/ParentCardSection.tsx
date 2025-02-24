@@ -24,7 +24,7 @@ const ParentCardSection = () => {
     ];
 
     return (
-        <div className="flex justify-evenly  md:flex-col sm:mx-auto gap-2 hover:cursor-pointer">
+        <div className="flex justify-evenly  md:flex-col sm:mx-auto gap-2 md:mx-auto hover:cursor-pointer">
             {data.map((item, index) => (
                 <CardSection key={index} {...item} />
             ))}

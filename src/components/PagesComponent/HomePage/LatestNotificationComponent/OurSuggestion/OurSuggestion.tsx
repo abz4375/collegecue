@@ -80,7 +80,10 @@ const OurSuggestion = () => {
                 {OurSuggestionData.map((item: any, index) => {
                   return (
                     <SwiperSlide key={index} className="mb-8">
+                      <div className=" border-2 border-gray-300 rounded-lg overflow-hidden">
                       <SuggestionCard {...item} />
+
+                      </div>
                     </SwiperSlide>
                   );
                 })}

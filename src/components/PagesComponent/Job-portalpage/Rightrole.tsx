@@ -105,7 +105,7 @@ const Rightrole = () => {
       </div>
       <div className="relative w-full">
         <button
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
           onClick={handlePrevClick}
           aria-label="Previous slide"
         >
@@ -168,7 +168,7 @@ const Rightrole = () => {
           </Swiper>
         </div>
         <button
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
           onClick={handleNextClick}
           aria-label="Next slide"
         >

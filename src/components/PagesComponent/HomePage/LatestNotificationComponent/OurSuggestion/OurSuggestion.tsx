@@ -34,7 +34,7 @@ const OurSuggestion = () => {
         <div className="w-full sm:justify-center navmd:justify-center  py-0">
           <div className="relative w-full">
             <button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
               onClick={handlePrevClick}
               aria-label="Previous slide"
             >
@@ -88,7 +88,7 @@ const OurSuggestion = () => {
             </div>
 
             <button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
               onClick={handleNextClick}
               aria-label="Next slide"
             >

@@ -38,7 +38,7 @@ function PopularCompare() {
       </div>
       <div className="relative px-8 lg:px-0 max-w-[900px] lg:max-w-[720px] md:max-w-[700px] mx-auto">
         <button
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
           onClick={handlePrevClick}
           aria-label="Previous slide"
         >
@@ -109,7 +109,7 @@ function PopularCompare() {
           })}
         </Swiper>
         <button
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
           onClick={handleNextClick}
           aria-label="Next slide"
         >

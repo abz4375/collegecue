@@ -168,7 +168,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="flex">
-      <nav className="flex items-center bg-white justify-center w-full mx-auto h-[64px] px-6 fixed top-0 left-0 z-10">
+      <nav className="flex items-center bg-white justify-center w-full mx-auto h-[64px] px-6 fixed top-0 left-0 z-20">
         <div className="flex items-center space-x-4">
           <Link href={"/"}>
             <Image
@@ -229,7 +229,7 @@ const Navbar: React.FC = () => {
               </button>
               {toggleDropdown && (
                 <ul
-                  className="absolute top-full left-0 mt-3 w-48 bg-white shadow-lg rounded-lg z-10
+                  className="absolute top-full left-0 mt-3 w-48 bg-white shadow-lg rounded-lg z-20
                         transition-all duration-300 ease-in-out transform opacity-100 btn btn-secondary dropdown-toggle"
                 >
                   {dropdownItems.map((item, index) => (

@@ -55,7 +55,7 @@ const PopularCollege = () => {
       </p>
       <div className="relative pt-8 max-w-[950px] mx-auto flex justify-center items-center">
         <button
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
           onClick={handlePrevClick}
           aria-label="Previous slide"
         >
@@ -129,7 +129,7 @@ const PopularCollege = () => {
           </Swiper>
         </div>
         <button
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-1 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
           onClick={handleNextClick}
           aria-label="Next slide"
         >

@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Add this CSS in your global stylesheet or a CSS module */
+::-webkit-scrollbar {
+  width: 8px; /* Change the width as needed */
+  height: 8px; /* Change the height as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Change the thumb color as needed */
+  border-radius: 4px; /* Round the corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Change the thumb color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1); /* Change the track color as needed */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@layer components {
+  .spinner {
+    @apply border-4 border-t-[#313893] border-transparent rounded-full;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+  @media (max-width: 600px) {
+    .spinner {
+      @apply w-8 h-8 border-[3px];
+    } 
+  }
+}

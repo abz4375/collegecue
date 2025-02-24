@@ -1,7 +1,7 @@
 import React from "react";
-import JEEMain1 from "@/Assets/ExamPage/ExamSyllabus/JEEMain1.png";
-import JEEMain2 from "@/Assets/ExamPage/ExamSyllabus/JEEMain2.png";
-import JEEMain3 from "@/Assets/ExamPage/ExamSyllabus/JEEMain3.png";
+import JEEMain1 from "@/assets/ExamPage/ExamSyllabus/JEEMain1.png";
+import JEEMain2 from "@/assets/ExamPage/ExamSyllabus/JEEMain2.png";
+import JEEMain3 from "@/assets/ExamPage/ExamSyllabus/JEEMain3.png";
 import ExamJeeMainCard from "../../Reusable_cards/ExamJeeMainCard";
 const JEEMainData = [
   {

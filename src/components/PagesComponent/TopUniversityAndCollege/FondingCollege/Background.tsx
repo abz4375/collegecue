@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import University from '@/Assets/Hero_Section/Top_Universities_Bg.jpg'
+import University from '@/assets/Hero_Section/Top_Universities_Bg.jpg'
  
 export default function Background() {
   return (

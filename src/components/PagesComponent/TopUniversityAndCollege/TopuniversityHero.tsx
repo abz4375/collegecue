@@ -2,9 +2,9 @@ import React from "react";
 import TopCollege_svg from "../../../assets/Hero_Section/woman.png";
 import Image from "next/image";
 import Background from "./FondingCollege/Background";
-import book from "@/Assets/TopCollegeUniversity/book.png"
-import bubble from "@/Assets/TopCollegeUniversity/bubble.png"
-import zigzag from "@/Assets/TopCollegeUniversity/zigzag.png"
+import book from "@/assets/TopCollegeUniversity/book.png"
+import bubble from "@/assets/TopCollegeUniversity/bubble.png"
+import zigzag from "@/assets/TopCollegeUniversity/zigzag.png"
 import collegegirl from "../../../assets/TopCollegeUniversity/topcollegehero.png";
 
 const TopuniversityHero = () => {

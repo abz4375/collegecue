@@ -2,7 +2,7 @@ import React from "react";
 import CountryFilter from "./CountryFilter/CountryFilter";
 import FilterComponents from "@/components/Allfilters/Filter/FilterComponents";
 import RightCard from "./RightCard";
-import InstituteHero from "@/Assets/Hero_Section/institutes.png";
+import InstituteHero from "@/assets/Hero_Section/institutes.png";
 import Image from "next/image";
 import Background from "./Background";
 const InstitutesContainer = () => {

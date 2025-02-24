@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Institutes from '@/Assets/Hero_Section/Institutes_Bg.png'
+import Institutes from '@/assets/Hero_Section/Institutes_Bg.png'
  
 export default function Background() {
   return (

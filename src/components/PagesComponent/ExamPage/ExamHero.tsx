@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import {ExamCategory} from "./ExamCategory";
 import Search from "./Search";
-// import examhero from "@/Assets/ExamPage/exam_hero.svg";
+// import examhero from "@/assets/ExamPage/exam_hero.svg";
 import {ExamButtonRender} from "./ExamButtonRender";
 
 const ExamHero = () => {

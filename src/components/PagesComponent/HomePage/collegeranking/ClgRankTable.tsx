@@ -7,7 +7,7 @@ import img5 from "../../../../assets/Homepage/collegerankingtable/agency5.webp";
 import img6 from "../../../../assets/Homepage/collegerankingtable/agency6.webp";
 import Image from "next/image";
 
-function Category(college, ranking, stream, image) {
+function Category(college:any, ranking:any, stream:any, image:any) {
   return { college, ranking, stream, image };
 }
 

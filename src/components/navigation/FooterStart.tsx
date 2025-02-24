@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../Assets/logo-removebg.png";
+import logo from "../../assets/logo-removebg.png";
 import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import { FaFacebookSquare, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";

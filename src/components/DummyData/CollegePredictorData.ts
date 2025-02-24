@@ -1,4 +1,4 @@
-// import Imglogo1 from "./Assets/Rectangle 17890 (6).png"
+// import Imglogo1 from "./assets/Rectangle 17890 (6).png"
 import Imglogo1 from "../../assets/CollegePredictor/Rectangle 17890 (6).png"
 
 import Imglogo2 from "../../assets/CollegePredictor/Rectangle 17890 (7).png"

@@ -7,9 +7,10 @@ import img5 from "../../../../assets/Homepage/collegerankingtable/agency5.webp";
 import img6 from "../../../../assets/Homepage/collegerankingtable/agency6.webp";
 import Image from "next/image";
 
-function Category(college: any, ranking: any, stream: any, image: any) {
+function Category(college, ranking, stream, image) {
   return { college, ranking, stream, image };
 }
+
 const Categoryrows = [
   Category(
     "IIT Roorkee - Indian Institute of Technology - [IITR], Roorkee",
@@ -51,20 +52,17 @@ const Categoryrows = [
 
 const ClgRankTable = () => {
   return (
-    <div className="sm:overflow-x-scroll w-fit mx-auto flex justify-center sm:justify-start border-2 border-gray-300 rounded-lg shadow-md">
-      <table
-        className="min-w-[600px] overflow-hidden rounded-lg"
-        aria-label="caption table"
-      >
+    <div className="overflow-x-auto w-full mx-auto border-2 border-gray-300 rounded-lg shadow-md">
+      <table className="w-full rounded-lg">
         <thead>
           <tr>
-            <th className="bg-blue-200 font-bold text-black text-base border-r border-white w-[750px] h-14 p-4 text-center ">
+            <th className="bg-blue-200 min-w-[400px] font-bold text-black text-base border-r border-white p-4 text-center">
               College
             </th>
-            <th className="items-center text-[white] font-bold text-base bg-blue-950 bg-opacity-95 border-r border-white w-56 h-14 p-4 text-center ">
+            <th className="items-center text-white font-bold text-base bg-blue-950 bg-opacity-95 border-r border-white p-4 text-center">
               Ranking
             </th>
-            <th className="items-center text-[white] font-bold text-base bg-blue-950 bg-opacity-95 w-40 h-14 p-4 text-center ">
+            <th className="items-center text-white font-bold text-base bg-blue-950 bg-opacity-95 p-4 text-center">
               Stream
             </th>
           </tr>
@@ -73,9 +71,11 @@ const ClgRankTable = () => {
           {Categoryrows.map((Categoryrow, index) => (
             <tr
               key={index}
-              className={`${index % 2 === 0 ? "bg-blue-100 bg-opacity-55 shadow-md" : "bg-white"} h-[3rem] shadow-sm`}
+              className={`${
+                index % 2 === 0 ? "bg-blue-100 bg-opacity-55 shadow-md" : "bg-white"
+              } shadow-sm`}
             >
-              <td className="text-gray-700 text-md font-bold mr-8 flex items-center ml-8 h-[4rem] pl-4 sm:pl-2 sm:font-normal overflow-x-auto">
+              <td className="text-gray-700 text-md font-bold flex items-center p-4">
                 <Image
                   src={Categoryrow.image}
                   alt="..."
@@ -83,10 +83,10 @@ const ClgRankTable = () => {
                 />
                 {Categoryrow.college}
               </td>
-              <td className="text-blue-950 text-base font- text-center h-[4rem] sm:font-normal">
+              <td className="text-blue-950 text-base font-normal text-center">
                 {Categoryrow.ranking}
               </td>
-              <td className="text-blue-950 text-base font- text-center h-[4rem] sm:font-normal">
+              <td className="text-blue-950 text-base font-normal text-center">
                 {Categoryrow.stream}
               </td>
             </tr>

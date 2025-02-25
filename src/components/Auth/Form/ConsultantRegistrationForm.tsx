@@ -242,7 +242,7 @@ const ConsultantRegistrationForm = () => {
           {isChecked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
         </button>
         <label htmlFor="agree" className="text-xs text-gray-600">
-          I agree to abide by CollegeCue&apos;s
+          &nbsp;I agree to abide by CollegeCue&apos;s
           <a href="#" className="border-b border-gray-500 border-opacity-25">
             &nbsp;Terms of Service &nbsp;
           </a>

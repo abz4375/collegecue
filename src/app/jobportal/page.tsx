@@ -33,7 +33,7 @@ const page = () => {
         <Rightrole />
         <Mentors />
         <CompanyPrepration />
-        <JobListContainer/>
+        {/* <JobListContainer/> */}
         
       </div>
 

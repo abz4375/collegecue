@@ -1,7 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import TopReviewCard from "../../Reusable_cards/TopReviewCard";
 import {FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
 
 const data = [
@@ -93,9 +96,72 @@ const AllTopReviewCard = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const sliceddata = data.slice(indexOfFirstItem, indexOfLastItem);
+
+
+  const swiperRef = useRef<any>(null);
+  const handlePrevClick = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleNextClick = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+  // return (
+  //   <div className=" sm:max-w-[300px] mx-auto">
+  //     <div className="relative px-8 lg:px-0 max-w-[900px] lg:max-w-[720px] md:max-w-[700px] mx-auto">
+  //       <button
+  //         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+  //         onClick={handlePrevClick}
+  //         aria-label="Previous slide"
+  //       >
+  //         <ChevronLeft className="w-6 h-6 text-gray-600" />
+  //       </button>
+  //       <Swiper
+  //         // effect?: 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards' | string;
+  //         ref={swiperRef}
+  //         watchOverflow={true}
+  //         centeredSlides={false}
+         
+  //         loop={true}
+  //         pagination={{
+  //           clickable: true,
+  //           dynamicBullets: true,
+  //         }}
+  //         navigation={{
+  //           enabled: true,
+  //           nextEl: ".swiper-button-next",
+  //           prevEl: ".swiper-button-prev",
+  //         }}
+  //         modules={[Pagination, Navigation]}
+  //         className="w-full"
+  //       >
+  //         {data.map((review: any, index) => {
+  //           return (
+  //             <SwiperSlide key={index} className="mb-8 ">
+  //                 {/* <SuggestionCard {...item} /> */}
+  //                 <TopReviewCard {...review} />
+  //             </SwiperSlide>
+  //           );
+  //         })}
+  //       </Swiper>
+  //       <button
+  //         className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md hover:bg-gray-50 focus:outline-none"
+  //         onClick={handleNextClick}
+  //         aria-label="Next slide"
+  //       >
+  //         <ChevronRight className="w-6 h-6 text-gray-600" />
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
+
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="flex justify-items-start items-center rounded-2xl h-auto md:flex-wrap gap-1 gap-y-3 mb-4">
+    <div className="flex flex-col items-center gap-6 sm:max-w-[300px] mx-auto">
+      <div className="flex lg:flex-wrap lg:items-center lg:justify-center justify-items-start items-center rounded-2xl h-auto md:flex-wrap gap-1 gap-y-3 mb-4">
         {sliceddata.map((review, index) => (
           <TopReviewCard key={index} {...review} />
         ))}
@@ -105,7 +171,7 @@ const AllTopReviewCard = () => {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          <FaAngleLeft className=" text-violet-400"/>
+          <FaAngleLeft className=" text-blue-400"/>
         </button>
         {currentPage}
       
@@ -113,12 +179,14 @@ const AllTopReviewCard = () => {
              onClick={() => handlePageChange(currentPage + 1)}
              disabled={currentPage === totalPages}
         >
-          <FaAngleRight  className=" text-violet-400"/>
+          <FaAngleRight  className=" text-blue-400"/>
         </button>
 
       </div>
     </div>
   );
+
+  
 };
 
 export default AllTopReviewCard;

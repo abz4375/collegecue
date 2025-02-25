@@ -8,7 +8,7 @@ const IIMBangaloreReview = () => {
   return (
     <div className="max-w-[1000px] gap-2 sm:p-0.5 flex flex-col md:items-center ">
       <div className=" flex flex-col gap-5 p-2 md:p-0 sm:w-[82.5vw]">
-        <p className="text-2xl sm:text-2xl sm:text-center font-bold text-left leading-[3rem] tracking-normal inline text-[black]">
+        <p className="text-2xl sm:text-2xl sm:text-center font-bold text-left leading-[3rem] md:ml-4 tracking-normal inline text-[black]">
           {"IIM Bangalore Reviews"}
         </p>
         <hr className="h-[1px] w-[80%] sm:w-0 " />

@@ -98,11 +98,11 @@ const LoginForm = () => {
           className={`mt-5 tracking-wide font-normal bg-gray-800 text-gray-100 w-full py-2 rounded-lg active:bg-opacity-90 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none ${
             !isChecked ? "opacity-50 cursor-not-allowed" : ""
           }`}
-          disabled={!isChecked}
+          // disabled={}
         >
           <span className="ml-0">Login</span>
         </button>
-        <div className="mt-4 flex items-start">
+        {/* <div className="mt-4 flex items-start">
           <input
             type="checkbox"
             id="agree"
@@ -118,7 +118,7 @@ const LoginForm = () => {
             {isChecked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
           </button>
           <label htmlFor="agree" className="text-xs text-gray-600">
-            I agree to abide by CollegeCue&apos;s
+            &nbsp;I agree to abide by CollegeCue&apos;s
             <a href="#" className="border-b border-gray-500 border-opacity-25">
               &nbsp;Terms of Service &nbsp;
             </a>
@@ -127,7 +127,7 @@ const LoginForm = () => {
               &nbsp; Privacy Policy&nbsp;
             </a>
           </label>
-        </div>
+        </div> */}
       </form>
     </div>
   );

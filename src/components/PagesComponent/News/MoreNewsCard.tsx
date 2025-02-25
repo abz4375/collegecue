@@ -3,11 +3,11 @@ import React, { FC } from "react";
 import Link from "next/link";
 
 interface MoreNewsCardProps {
-  heading: string;
-  content: string;
   moreNewsImg: string;
-  date:any,
-  readLink:string,
+  heading: string;
+  content?: string;
+  date: string;
+  readLink: string;
 }
 
 const MoreNewsCard: FC<MoreNewsCardProps> = ({
@@ -15,43 +15,45 @@ const MoreNewsCard: FC<MoreNewsCardProps> = ({
   heading,
   content,
   date,
-  readLink
+  readLink,
 }) => {
   return (
-    <div className="w-[350px] h-[400px] hover:bg-white rounded-[28px] flex-col justify-center items-start inline-flex
-    hover:shadow-xl hover:scale-105 duration-500 transition-all ease-in-out">
-      <div className="self-stretch h-[180px] rounded-tl-[28px] rounded-tr-[28px] justify-center items-center inline-flex">
-        <Image
-          className="w-[350px] h-[180px] rounded-xl relative rounded-b-none"
-          src={moreNewsImg}
-          alt="News"
-        />
+    <div className="transition-all duration-300 bg-white rounded-sm p-4 flex items-center  border-t-2 border-b-2 border-gray-200 space-x-4">
+      {/* Left Side - News Content */}
+      <div className="flex-1">
+        <p className="text-gray-500 text-sm">{date}</p>
+        <h3 className="text-gray-900 font-semibold text-md leading-tight hover:text-blue-600 transition cursor-pointer mt-2">
+          {heading}
+        </h3>
+        {/* Show content if available */}
+        {content && (
+          <p className="text-gray-600 text-sm mt-1 line-clamp-2 navmd:hidden">{content}</p>
+        )}
+        {/* Read More Button */}
+        <Link
+            href="https://www.thehindu.com/topic/College_admission/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+          <button
+            className=" text-sm font-normal text-gray-700 mt-2 hover:underline hover:text-blue-500"
+            aria-label="Read more about this news"
+          >
+            Read More..
+          </button>
+        </Link>
       </div>
-      <div className="self-stretch h-[223.05px] px-4 pt-[15.25px] pb-4 flex-col justify-start items-start gap-2 inline-flex">
-        <div className="self-stretch h-[19.75px] pb-[0.75px] flex-col justify-start items-start flex">
-          <div className="self-stretch text-neutral-600 text-[12.80px] font-medium leading-[18.30px] tracking-tight">
-            {date}
-          </div>
-        </div>
-        <div className="self-stretch h-[57px] flex-col justify-start items-start flex">
-          <div className="self-stretch text-zinc-800 text-lg font-bold  leading-7 tracking-tight truncate">
-            {heading}
-          </div>
-        </div>
-        <div className="self-stretch h-[61px] flex-col justify-start items-start flex">
-          <div className="self-stretch text-stone-500 text-sm font-normal  leading-tight tracking-tight">
-            {content}
-          </div>
-        </div>
-        <div className="self-stretch pl-[119.40px] pr-[119.41px] pt-2 justify-center items-start inline-flex">
-          <div className="self-stretch flex-col justify-start items-start inline-flex">
-            <Link href={readLink} className="no-underline">
-            <div className="text-orange-500 text-base font-semibold  leading-normal tracking-tight">
-              Read More
-            </div>
-            </Link>
-          </div>
-        </div>
+
+      {/* Right Side - Image */}
+      <div className="w-[80px] h-[60px] md:w-[100px] md:h-[75px] flex-shrink-0">
+        <Image
+          className="w-full h-full object-cover rounded-lg"
+          src={moreNewsImg}
+          alt={heading}
+          width={100}
+          height={75}
+          priority
+        />
       </div>
     </div>
   );

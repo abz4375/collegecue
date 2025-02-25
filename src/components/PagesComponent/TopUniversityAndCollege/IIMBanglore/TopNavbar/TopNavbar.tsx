@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import GalleryContainer from "../NapPages/Gallery/GalleryContainer";
 import CoursesFees from "../NapPages/CoursesFees/CoursesFees";
 import FacultyContainer from "../NapPages/Faculty/FacultyContainer";
@@ -52,11 +52,16 @@ interface CollegeInfo {
 
 interface Props {
   collegeInfo: CollegeInfo;
+  menuRef?: React.RefObject<HTMLDivElement>;
 }
 
-const TopNavbar: FC<Props> = ({ collegeInfo }) => {
+const TopNavbar: FC<Props> = ({ collegeInfo, menuRef }) => {
   const [activeMenuItem, setActiveMenuItem] = useState<number | null>(0);
   const [screen, setScreen] = useState<boolean>(true);
+  const [isSticky, setIsSticky] = useState(false);
+  const menuRef2 = useRef<HTMLDivElement>(null);
+  const originalOffsetTop = useRef<number>(0);
+
   const {
     logo,
     name,
@@ -76,11 +81,30 @@ const TopNavbar: FC<Props> = ({ collegeInfo }) => {
       setScreen(window.innerWidth < 600);
     };
 
+    const handleScroll = () => {
+      if (menuRef2?.current) {
+        if (originalOffsetTop.current === 0) {
+          originalOffsetTop.current = menuRef2?.current.offsetTop;
+        }
+
+        const scrollPosition = window.scrollY;
+        const threshold = 64;
+
+        if (scrollPosition >= originalOffsetTop.current - threshold) {
+          setIsSticky(true);
+        } else {
+          setIsSticky(false);
+        }
+      }
+    };
+
     handleResize();
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -97,117 +121,76 @@ const TopNavbar: FC<Props> = ({ collegeInfo }) => {
 
   const handleClick = (index: number) => {
     setActiveMenuItem(index === activeMenuItem ? index : index);
+
+    const menuItemElement = document.querySelector(
+      `.scrolltohere`
+    );
+    if (menuItemElement) {
+      menuItemElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+
+      const menuItemRect = menuItemElement.getBoundingClientRect();
+      const offset = menuItemRect.top - 64;
+      window.scrollBy({
+        top: offset,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <div className="flex flex-row [@media_(max-width:_1096px)]:flex-col [@media_(max-width:_1096px)]:items-center justify-center pt-10 md:pt-0">
+    <div className="scrolltohere flex flex-row [@media_(max-width:_1096px)]:flex-col [@media_(max-width:_1096px)]:items-center justify-center pt-5 md:pt-0">
       <div className="flex flex-col items-start md:items-center justify-center border-black border- pr-4 md:pr-0 max-w-[950px] [@media_(max-width:_1250px)]:max-w-[640px] [@media_(max-width:_700px)]:max-w-[100vw] md:mt-2">
-        {/* <div className=" flex items-center">
-          <div className=" w-fit  pb-5 md:p-4 sm:mx-0 flex md:flex-col  items-center justify-start gap-1 border- border-black">
-            <div>
-              <Image src={logo} alt={""} className="m-3" />
-            </div>
-            <div className="flex flex-col items-start md:items-center border- border-black gap-1 ">
-              <p className="font- bold text-2xl text-black text-center">
-                {name}
-              </p>
-              <p className="text-gray-800 text-center">
-                {location} | {approved} Approved
-              </p>
-              <div className="text-gray-800 gap-3 text-[10px] flex  items-center  md:gap-1 ">
-                <div className="flex sm:w-[50px] items-center">
-                  <MdPushPin className="scale-125 m-2" />
-                  <div className=" h-full my-auto">Estd {established}</div>
-                </div>
-                <p className="sm:w-[60px]">
-                  {isAutonomous
-                    ? "Autonomous University"
-                    : "Non-Autonomous University"}
-                </p>
-                <p className="sm:w-[60px]">
-                  {" "}
-                  {questionsAnswered} Questions Answered
-                </p>
-                <p className="sm:w-[60px]">
-                  Ranked {ranking} For MBA By NIRF 2022
-                </p>
-                <p className="sm:w-[60px]">+{additionalInfo} More</p>
-              </div>
-              <div className="flex md:flex-col  items-center text-[15px] justify-center space-x-4 mt-4">
-                <div className="flex items-center gap-2">
-                  <div className="font-bold  text-gray-800 text-[25px]">
-                    {rating}
-                  </div>
-                  <Image
-                    src={reviewsImg}
-                    alt="Reviews"
-                    className="w-12 h-8 mt-1 invert"
-                  />
-                </div>
-
-                <div className="flex  md:flex-col">
-                  <button className="text-gray-800  ">Will You Get In</button>
-                  <button className="text-gray-800 ">
-                    Get Contact Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-        <Swiper
-          breakpoints={{
-            300: {
-              slidesPerView: 4,
-              spaceBetween: 0,
-            },
-            648: {
-              slidesPerView: 4,
-              spaceBetween: 0,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 0,
-            },
-            1096: {
-              slidesPerView: 7,
-              spaceBetween: 0,
-            },
-          }}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-            type: "custom",
-          }}
-          modules={[Pagination, Autoplay]}
-          className="w-full mb-10"
+        <div
+          ref={menuRef2}
+          className={`${isSticky ? " pt-2 w-full fixed top-14 left-0 right-0 bg-white z-50 shadow-md mx-auto" : "w-full relative appearhere"}`}
         >
-          {menuItems.map((menuItem, index) => (
-            <SwiperSlide
-              key={index}
-              className="flex p-1 w-[10px] justify-center items-end border- border-black"
-              style={{ width: "250px" }}
-            >
-              <div
-                className={`mx-auto transition-all duration-300 cursor-pointer border text-[0.9rem] font-semibold rounded-full text-gray-500 bg-white min-w-[60px] text-center py-[6px] px-[10px] w-fit flex flex-row ${
-                  index === activeMenuItem
-                    ? "text-gray-800 border-blue-500"
-                    : "border-white hover:border-gray-300 text-opacity-80"
-                }`}
-                onClick={() => handleClick(index)}
+          <Swiper
+            breakpoints={{
+              300: { slidesPerView: 3, spaceBetween: 0 },
+              648: { slidesPerView: 4.25, spaceBetween: 0 },
+              1024: { slidesPerView: 5.25, spaceBetween: 0 },
+              1096: { slidesPerView: 6.25, spaceBetween: 0 },
+              1240:{ slidesPerView:8, spaceBetween: 0}
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              type: "custom",
+            }}
+            modules={[Pagination, Autoplay]}
+            className={`${isSticky?' w-4/5 mx-auto md:w-full mb-1':'mb-10 w-full'} px-4`}
+          >
+            {menuItems.map((menuItem, index) => (
+              <SwiperSlide
+                key={index}
+                className="flex p-1 w-[10px] justify-center items-end border- border-black"
+                style={{ width: "250px" }}
               >
-                {menuItem.label.split(" ").map((word, wordIndex) => (
-                  <div key={wordIndex} className=" mr-[2px]">
-                    {word}
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                <div
+                  className={`mx-auto transition-all duration-300 cursor-pointer border text-[0.9rem] font-semibold rounded-full text-gray-500 bg-white text-center py-[6px] px-[10px] w-fit flex flex-row ${
+                    index === activeMenuItem
+                      ? "text-gray-800 border-blue-500"
+                      : "border-white hover:border-gray-300 text-opacity-80"
+                  }`}
+                  onClick={() => handleClick(index)}
+                >
+                  {menuItem.label.split(" ").map((word, wordIndex) => (
+                    <div key={wordIndex} className="mr-[2px]">
+                      {word}
+                    </div>
+                  ))}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
         <div className="flex md:flex-col gap-10 border- border-black">
-          <div className="flex flex-col  sm:max-w-[100vw] ">
+          <div className="flex flex-col sm:max-w-[100vw]">
             {activeMenuItem !== null && menuItems[activeMenuItem].component}
             <div>
               <IIMBangaloreReview />

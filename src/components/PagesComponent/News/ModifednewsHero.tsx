@@ -50,22 +50,22 @@ const ModifednewsHero = () => {
           <div className='w-1/2 md:w-full flex justify-center items-center'>
             <Image src={newsland} alt="..." className='w-3/4 h-3/4 object-contain' />
           </div>
-          <div className='w-1/2 md:w-full flex flex-wrap items-center justify-evenly gap-8'>
-            <div className="bg-white rounded-[20px] p-[20px] w-[279px] h-auto overflow-hidden">
+          <div className='w-1/2 md:w-full flex flex-wrap items-center justify-evenly gap-8 lg:w-full'>
+            <div className="bg-white rounded-[20px] p-[20px] w-[279px] h-auto overflow-hidden cursor-pointer">
               {Trending.map((item: NewsItem, index: number) => (
                 <div key={index} className="mb-4">
-                  <h4 className="font-bold text-[24px]">{item.heading}</h4>
+                  <h4 className="font-semibold text-[24px] text-gray-800">{item.heading}</h4>
                   <hr className="my-2 border-t border-gray-300 mb-6" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content1}</p>
+                  <p className="text-blue-500 font-medium text-[14px]">{item.content1}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content2}</p>
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content2}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content3}</p>
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content3}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content4}</p>
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content4}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content5}</p>
-                  <p className="text-gray-700 italic font-semibold mt-6">
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content5}</p>
+                  <p className="text-gray-600 italic font-medium mt-6">
                     Date: {item.date}
                   </p>
                   {index !== Trending.length - 1 && (
@@ -74,21 +74,21 @@ const ModifednewsHero = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-white rounded-[20px] p-[20px] w-[279px] h-auto overflow-hidden">
+            <div className="bg-white rounded-[20px] p-[20px] w-[279px] h-auto overflow-hidden cursor-pointer">
               {Featured.map((item: NewsItem, index: number) => (
                 <div key={index} className="mb-4">
-                  <h4 className="font-bold text-[24px]">{item.heading}</h4>
+                  <h4 className="font-semibold text-[24px] text-gray-800">{item.heading}</h4>
                   <hr className="my-2 border-t border-gray-300 mb-6" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content1}</p>
+                  <p className="text-blue-500 font-medium text-[14px]">{item.content1}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content2}</p>
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content2}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content3}</p>
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content3}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content4}</p>
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content4}</p>
                   <hr className="my-2 border-t border-gray-300" />
-                  <p className="text-[#1DB0FE] font-medium text-[14px]">{item.content5}</p>
-                  <p className="text-gray-700 italic font-semibold mt-6">
+                  <p className="text-blue-500  font-medium text-[14px]">{item.content5}</p>
+                  <p className="text-gray-600 italic font-medium mt-6">
                     Date: {item.date}
                   </p>
                   {index !== Featured.length - 1 && (
@@ -104,7 +104,7 @@ const ModifednewsHero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-        <div className='w-[160px] h-[40px] bg-blue-500 flex items-center justify-center gap-2 md:mt-8 flex-row rounded-lg text-white'>
+        <div className='w-[160px] h-[40px] bg-blue-500 flex items-center justify-center gap-2 md:mt-8 flex-row rounded-lg text-white hover:bg-blue-600  '>
             <div>Live News</div>
             <div><MdOutlineLiveTv /></div>
         </div>

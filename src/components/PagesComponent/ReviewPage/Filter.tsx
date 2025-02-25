@@ -10,7 +10,7 @@ const Filter = ({
     <div className={`flex  justify-center items-center  h-auto flex-wrap gap-4`}>
       {filters &&
         filters.map((filter, index) => (
-          <FilterButton key={index}>{filter}</FilterButton>
+          <FilterButton reviewfilter key={index}>{filter}</FilterButton>
         ))}
     </div>
   );

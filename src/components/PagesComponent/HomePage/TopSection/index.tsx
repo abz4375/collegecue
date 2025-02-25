@@ -28,16 +28,7 @@ const TopSection = () => {
       image: "https://www.collegecue.com/static/media/NDLI-white.7830a43bd90ff6459060.webp",
       link: "https://ndl.iitkgp.ac.in/",
     },
-    {
-      heading: "National Digital Library",
-      image: "https://www.collegecue.com/static/media/NDLI-white.7830a43bd90ff6459060.webp",
-      link: "https://ndl.iitkgp.ac.in/",
-    },
-    {
-      heading: "National Digital Library",
-      image: "https://www.collegecue.com/static/media/NDLI-white.7830a43bd90ff6459060.webp",
-      link: "https://ndl.iitkgp.ac.in/",
-    },
+ 
   ];
 
   const swiperRef = useRef(null);
@@ -58,22 +49,22 @@ const TopSection = () => {
               <Swiper
                 ref={swiperRef}
                 watchOverflow={false}
-                centeredSlides={true}
+                centeredSlides={false}
                 breakpoints={{
                   300: {
                     slidesPerView: 1,
                     spaceBetween: 5,
                   },
                   648: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 15,
                   },
                   768: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                     spaceBetween: 20,
                   },
                   1024: {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                     spaceBetween: 10,
                   },
                 }}

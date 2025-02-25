@@ -15,7 +15,7 @@ interface MoreNewsItem {
 
 const itemsPerPage = 6; // Number of cards per page
 
-const MoreNewses: React.FC = () => {
+const CollegeNews: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(MoreNews.length / itemsPerPage);
 
@@ -32,7 +32,7 @@ const MoreNewses: React.FC = () => {
   return (
     <div className="max-w-[1320px] mx-auto mb-20 mt-20">
       <div className="h-[41.99px] max-w-full mb-5 mr-10">
-        <Heading heading_name={"More News"} />
+        <Heading heading_name={"College News"} />
       </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3 gap-6 ml-10 mr-10">
@@ -105,4 +105,4 @@ const MoreNewses: React.FC = () => {
   );
 };
 
-export default MoreNewses;
+export default CollegeNews;

@@ -162,7 +162,7 @@ const TopNavbar: FC<Props> = ({ collegeInfo, menuRef }) => {
               type: "custom",
             }}
             modules={[Pagination, Autoplay]}
-            className={`${isSticky?' w-4/5 mx-auto md:w-full mb-1':'mb-10 w-full'} px-4`}
+            className={`${isSticky?' w-4/5 mx-auto md:w-full mb-1':'mb-4 w-full'} px-4`}
           >
             {menuItems.map((menuItem, index) => (
               <SwiperSlide

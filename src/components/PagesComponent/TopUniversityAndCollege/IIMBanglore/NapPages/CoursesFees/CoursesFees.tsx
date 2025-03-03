@@ -11,8 +11,8 @@ import QuesAnsContainer from "./QuesAns/QuesAnsContainer";
 const CoursesFees = () => {
   return (
     <div className="">
-      <div className="  text-black text-lg sm:text-center  font-bold flex flex-col gap-5">
-        <center>IIM Bangalore Fees & Eligibility</center>
+      <div className="  text-black text-xl sm:text-center mt-4 font-bold flex flex-col gap-5">
+        <div>IIM Bangalore Fees & Eligibility</div>
         <div className="p- rounded-[15px] max-w-full items-center flex justify-center">
           <IIMBangaloreSwiper />
         </div>

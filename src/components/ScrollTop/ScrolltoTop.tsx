@@ -19,10 +19,19 @@ const ScrollToTop: React.FC = () => {
     <>
       {isVisible && (
         <button
-          className=" fixed bottom-6 right-6 bg-gray-200 focus:bg-gray-300 text-white font-bold py-3 px-3 shadow-3xl rounded-full transition duration-300 animate-bounce ease-in-out z-[1000]"
+          className="
+            fixed bottom-6 right-6 
+            bg-gray-200 text-[#101321] 
+            p-3 rounded-full 
+            shadow-lg 
+            transition-all duration-300 ease-in-out 
+            hover:bg-gray-300 hover:shadow-xl hover:scale-105 
+            
+            z-[1000]"
           onClick={scrollToTop}
+          aria-label="Scroll to top"
         >
-          <GoChevronUp className="text-3xl text-[#101321]" />
+          <GoChevronUp className="text-3xl" />
         </button>
       )}
     </>

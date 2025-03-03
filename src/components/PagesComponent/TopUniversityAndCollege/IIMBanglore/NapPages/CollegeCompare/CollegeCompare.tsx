@@ -5,8 +5,8 @@ import logo from "@/assets/IIMBangalore/NavPages/CollegeCompare/office-building.
 const CollegeCompare: React.FC = () => {
   return (
     <>
-      <div className="container mx-auto  bg-white rounded-xl p-8 pt-2">
-        <div className="font-bold  sm:text-center text-[30px] text-gray-800 mb-4">
+      <div className="container mx-auto  bg-white rounded-xl p-8 pt-4">
+        <div className="font-bold  sm:text-center text-2xl text-gray-800 mb-4">
           College Compare
         </div>
         <div className="flex md:flex-col justify-center items-center gap-5 md:gap-0">

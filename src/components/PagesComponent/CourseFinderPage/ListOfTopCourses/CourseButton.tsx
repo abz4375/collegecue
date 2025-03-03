@@ -18,16 +18,16 @@ const CourseButton = () => {
 
   const handleFilterCountry = (country: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("selectedCountry", country);
+    params.set("tag", country);
     window.history.pushState(null, "", `?${params.toString()}`);
   };
 
   return (
-    <div className="flex flex-wrap gap-4 max-w-[420px] mt-8">
+    <div className="flex flex-wrap gap-4 md:mb-16 mt-4 max-w-[40vw] md:max-w-full">
       {courses.map((course) => (
         <button
           key={course.id}
-          className={`  border-2 bg-purple-600/40  border-purple-600/40 rounded-full drop-shadow-2xl shadow-md  text-[#ffffff]  text-lg font-semibold hover:bg-[#f94306] px-4 py-2 flex items-center`}
+          className={` transition-all duration-300 border-2 bg-blue-100/75 text-blue-500  border-blue-500 rounded-full drop-shadow-2xl shadow-md  hover:text-[#ffffff]  text-base font-semibold hover:bg-blue-500 px-3 py-1 flex items-center`}
           onClick={() => handleFilterCountry(course.label)}
         >
           {course.label}

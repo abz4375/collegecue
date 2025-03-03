@@ -10,8 +10,35 @@ import img9 from "@/assets/Images/Rectangle 17890 (14).png";
 import img10 from "@/assets/Images/Rectangle 17890 (15).png";
 import img11 from "@/assets/Images/Rectangle 17890 (16).png";
 import img12 from "@/assets/Images/Rectangle 17890 (17).png";
+import img13 from "@/assets/IIMBangalore/vedantaLogo.png";
 export const Data = [
-    {
+  {
+    id: "2196",
+    img: img13,
+    name: "Vedanta IAS Academy",
+    Courses: "+ 5 Courses",
+    stars: 4.1,
+    CoursesFee: " ₹ 38,000 ",
+    CenterName: "New Delhi",
+    brochure: "",
+    apply: "",
+    BlueBoxes: [
+      {
+        name: "GMAT",
+        link: "",
+      },
+      {
+        name: "BAT",
+        link: "",
+      },
+      {
+        name: "SAT",
+        link: "",
+      },
+    ],
+  },  
+  {
+      id: "ims_cata",
       img: img1,
       name: "IMS CATA",
       Courses: "+ 5 Courses",

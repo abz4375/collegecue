@@ -27,7 +27,7 @@ const RightCard = () => {
   const currentInstitutes = Data.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className=" flex flex-col items-center gap-3 w-full">
+    <div className=" flex flex-col lg:justify-center items-center gap-3 w-full">
    
         {currentInstitutes.map((item, index) => (
           <IndianInstituteCard key={index} {...item} />

@@ -33,7 +33,7 @@ function PopularCompare() {
 
   return (
     <div className="  mx-auto rounded-xl bg-white w-full">
-      <div className="font-bold sm:text-center text-[30px] text-gray-800">
+      <div className="font-bold sm:text-center text-2xl text-gray-800 mb-4">
         Popular Compare
       </div>
       <div className="relative px-8 lg:px-0 max-w-[900px] lg:max-w-[720px] md:max-w-[700px] mx-auto">

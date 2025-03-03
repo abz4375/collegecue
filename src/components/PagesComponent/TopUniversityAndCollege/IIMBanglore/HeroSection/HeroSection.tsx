@@ -158,7 +158,7 @@ const HeroSection: FC<Props> = ({ collegeInfo }) => {
       </div>
 
       <div className=" flex [@media_(min-width:_1024.1px)]:absolute lg:relative inset-0 z-10 lg:justify-center">
-        <div className="  bg-[linear-gradient(90deg,#ffffff,#ffffffbf,#ffffffbf)] backdrop-blur-md z-10 pl-8 [@media_(min-width:_1024px)]:max-w-[27.5vw] lg:max-w-full p-6 sm:p-8 md:p-10 border-black border- text-black flex flex-col justify-center lg:items-center">
+        <div className="  bg-[linear-gradient(90deg,#ffffff,#ffffffbf,#ffffffbf)] backdrop-blur-md z-10 pl-8 [@media_(min-width:_1024px)]:min-w-[27.5vw] [@media_(min-width:_1024px)]:max-w-[27.5vw] lg:max-w-full p-6 sm:p-8 md:p-10 border-black border- text-black flex flex-col justify-center lg:items-center">
           {/* Logo */}
           <div className="mb-6 sm:mb-8">
             <Image

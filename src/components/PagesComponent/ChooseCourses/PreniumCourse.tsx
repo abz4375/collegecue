@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useRef, useState } from 'react'
 import Heading from '../../Heading/Heading'
 import {ExploreCourseCard} from "../../Reusable_cards/ExploreCourseCard"
 const courses = [
@@ -90,39 +92,130 @@ const courses = [
       originalPrice: '79.99',
       discountedPrice: '$50.99',
     },
+    {
+      category: 'Design, UI/UX',
+      title: 'User Experience The Ultimate Guide to Usability and UX',
+      lessons: 19,
+      students: 14,
+      imageUrl: 'https://html.themewant.com/studyhub/assets/images/course/08.jpg',
+      instructor: 'Alex Johnson',
+      rating: 4.2,
+      originalPrice: '79.99',
+      discountedPrice: '$50.99',
+    },
+    {
+      category: 'Design, UI/UX',
+      title: 'User Experience The Ultimate Guide to Usability and UX',
+      lessons: 19,
+      students: 14,
+      imageUrl: 'https://html.themewant.com/studyhub/assets/images/course/06.jpg',
+      instructor: 'Alex Johnson',
+      rating: 4.2,
+      originalPrice: '79.99',
+      discountedPrice: '$50.99',
+    },
+    {
+      category: 'Design, UI/UX',
+      title: 'User Experience The Ultimate Guide to Usability and UX',
+      lessons: 19,
+      students: 14,
+      imageUrl: 'https://html.themewant.com/studyhub/assets/images/course/07.jpg',
+      instructor: 'Alex Johnson',
+      rating: 4.2,
+      originalPrice: '79.99',
+      discountedPrice: '$50.99',
+    },
+    {
+      category: 'Design, UI/UX',
+      title: 'User Experience The Ultimate Guide to Usability and UX',
+      lessons: 19,
+      students: 14,
+      imageUrl: 'https://html.themewant.com/studyhub/assets/images/course/08.jpg',
+      instructor: 'Alex Johnson',
+      rating: 4.2,
+      originalPrice: '79.99',
+      discountedPrice: '$50.99',
+    },
+  
   ];
 
-const PreniumCourse:React.FC = () => {
-    
-      
-  return (
-   <div className='w-full bg-[#F5F5F5] my-20'>
-    <div className='max-w-[1340px] px-4 mx-auto py-8'>
-        <div className='mb-4'>
-        <Heading heading_name={"Premium Course"} />
-        <p>Courses are available at an affordable price & valuable certifications are included.</p>
-        </div>
-        <div className="flex flex-wrap gap-6 md:w-full justify-between">
-        {courses.map((course, index) => (
-          <div key={index} className="w-[300px] h-[490px] md:w-full sm:w-full flex md:flex-col sm:flex-col">
-            <ExploreCourseCard
-              category={course.category}
-              title={course.title}
-              lessons={course.lessons}
-              students={course.students}
-              imageUrl={course.imageUrl}
-              instructor={course.instructor}
-              rating={course.rating}
-              originalPrice={course.originalPrice}
-              discountedPrice={course.discountedPrice}
-              index={index}
-            />
+  const coursesPerPage = 8;
+
+  
+
+  const PreniumCourse: React.FC = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil(courses.length / coursesPerPage);
+    const sectionRef = useRef<HTMLDivElement>(null); 
+  
+    const indexOfLastCourse = currentPage * coursesPerPage;
+    const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+    const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
+  
+    const handlePageChange = (pageNumber: number) => {
+      if (pageNumber < 1 || pageNumber > totalPages) return;
+      setCurrentPage(pageNumber);
+  
+     
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+  
+    return (
+      <div ref={sectionRef} className='w-full bg-[#F5F5F5] my-20'>
+        <div className='max-w-[1340px] px-4 mx-auto py-8'>
+          <div className='mb-4'>
+            <Heading heading_name={'Premium Course'} />
+            <p className='ml-5 md:ml-7 text-gray-700'>
+              Courses are available at an affordable price & valuable certifications are included.
+            </p>
           </div>
-        ))}
+          <div className='flex flex-wrap gap-6 md:w-full justify-center'>
+            {currentCourses.map((course, index) => (
+              <div key={index} className='w-[300px]  md:w-[350px] sm:w-full flex md:flex-row sm:flex-col'>
+                <ExploreCourseCard
+                  category={course.category}
+                  title={course.title}
+                  lessons={course.lessons}
+                  students={course.students}
+                  imageUrl={course.imageUrl}
+                  instructor={course.instructor}
+                  rating={course.rating}
+                  originalPrice={course.originalPrice}
+                  discountedPrice={course.discountedPrice}
+                  index={index}
+                />
+              </div>
+            ))}
+          </div>
+          
+          <div className='flex justify-center mt-6 space-x-4'>
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className='px-3 py-1 bg-gray-300 text-gray-700 rounded-3xl disabled:opacity-50'
+            >
+              Prev
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+              <button
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+                className={`px-3 py-1 border rounded-full ${pageNumber === currentPage ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'}`}
+              >
+                {pageNumber}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className='px-3 py-1 bg-gray-300 text-gray-700 rounded-3xl disabled:opacity-50'
+            >
+              Next
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  )
-}
+    );
+  };
 
 export default PreniumCourse

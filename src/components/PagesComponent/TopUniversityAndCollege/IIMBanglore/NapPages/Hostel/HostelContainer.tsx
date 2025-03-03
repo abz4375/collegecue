@@ -14,7 +14,7 @@ const Hostel: React.FC = () => {
   const { pageTitle, fee, description, image, tableOfContent } = hostelInfo;
 
   return (
-    <div className="container mx-auto px-4 py-8 gap-5">
+    <div className="container mx-auto px-4 py-4 gap-5">
       <div className="flex items-center justify-between  gap-5">
         <div className="text-gray-800 text-2xl md:text-xl font-bold">
           {pageTitle} Hostel

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import courseFinderdata from "../../../DummyData/CourseFinderdata";
 import CourseFinderCard from "../../../Reusable_cards/CourseFinderCard";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import TopFilters from "./TopFilters";
 
 const RightCard = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -23,7 +24,8 @@ const RightCard = () => {
     indexOfLastItem
   );
   return (
-    <div className=" flex flex-col h-auto gap-5 my-8 mx-2  ">
+    <div className=" flex flex-col h-auto gap-5 my-8 mt-0 mx-2  ">
+      <TopFilters/>
       {currentCourses.map((course, index) => (
         <>
           <CourseFinderCard key={index} {...course} />
@@ -50,9 +52,9 @@ const RightCard = () => {
               (pageNumber) => (
                 <li key={pageNumber}>
                   <button
-                    className={`px-3 py-1.5 leading-tight text-gray-500   rounded-xl hover:bg-orange-300 hover:text-gray-700  ${
+                    className={`px-3 py-1.5 leading-tight text-gray-500   rounded-xl hover:bg-blue-100 hover:text-gray-700  ${
                       pageNumber === currentPage
-                        ? " bg-orange-500 text-white"
+                        ? " bg-blue-500 text-white"
                         : ""
                     }`}
                     onClick={() => handlePageChange(pageNumber)}

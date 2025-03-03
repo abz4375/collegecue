@@ -20,7 +20,7 @@ const ImageContainer: FC<Props> = ({ campusImages, eventImages }: any) => {
   return (
     <div className="shadow-[0px_0px_2.5rem_rgba(123,144,255,0.15)] rounded-[15px] flex flex-col  gap-5">
       <div className="p-5">
-        <p className="text-2xl font-bold text-gray-800 my-4">
+        <p className="text-2xl font-bold text-gray-800 my-4 mt-0">
           IIM Bangalore Images
         </p>
         <p className="text-xl font-bold text-blue-900 text-opacity-75 my-4">Campus Images</p>

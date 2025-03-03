@@ -174,7 +174,7 @@ const Navbar: React.FC = () => {
             <Image
               src={logo}
               alt="CollegeCue"
-              className="h-12 w-auto filter invert sm:h-auto md:h-auto"
+              className="h-12 object-cover max-h-[64px] w-auto filter invert sm:h-auto md:h-auto"
             />
           </Link>
         </div>

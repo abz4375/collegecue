@@ -13,13 +13,13 @@ const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
   const renderStars = () => {
     const stars = [];
     for (let i = 0; i < filledStars; i++) {
-      stars.push(<GoStarFill key={i} className="text-[#7B90FF]" />);
+      stars.push(<GoStarFill key={i} className="text-amber-500" />);
     }
     if (hasHalfStar) {
-      stars.push(<GoStar key="half-star" className="text-[#7B90FF]" />);
+      stars.push(<GoStar key="half-star" className="text-amber-500" />);
     }
     for (let i = 0; i < remainingStars; i++) {
-      stars.push(<GoStar key={`empty-star-${i}`} className="text-[#7B90FF]" />);
+      stars.push(<GoStar key={`empty-star-${i}`} className="text-amber-500" />);
     }
     return stars;
   };

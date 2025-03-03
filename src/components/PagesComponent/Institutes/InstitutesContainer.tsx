@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import CountryFilter from "./CountryFilter/CountryFilter";
 import FilterComponents from "@/components/Allfilters/Filter/FilterComponents";
 import RightCard from "./RightCard";
@@ -6,6 +7,41 @@ import InstituteHero from "@/assets/Hero_Section/institutes.png";
 import Image from "next/image";
 import Background from "./Background";
 const InstitutesContainer = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [filterbarHeight, setFilterbarHeight] = useState(0);
+  const filterBarRef = useRef<HTMLDivElement>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [initialFilterTop, setInitialFilterTop] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    if (!filterBarRef.current) return;
+
+    const navbarHeight = 64;
+    const currentScrollY = window.scrollY;
+    const isScrollingUp = currentScrollY < lastScrollY;
+
+    if (isScrollingUp) {
+      setIsSticky(currentScrollY > initialFilterTop - navbarHeight);
+    } else {
+      setIsSticky(currentScrollY > initialFilterTop - navbarHeight);
+    }
+
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY, initialFilterTop]);
+
+  useEffect(() => {
+    if (filterBarRef.current) {
+      setFilterbarHeight(filterBarRef.current.offsetHeight);
+      setInitialFilterTop(
+        filterBarRef.current.getBoundingClientRect().top + window.scrollY
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
   return (
     <div className="w-full">
       <div className="w-full flex justify-center  py-5 ">
@@ -33,11 +69,23 @@ const InstitutesContainer = () => {
 
       <div className="container max-w-[1280px] flex flex-col items-center justify-center gap-6 mb-5 lg:py-2 mx-auto px-4 xl:px-5">
         <div className="flex flex-col py-16 lg:px-2 lg:py-1 lg:pb-6 md:p-0 w-full  ">
-          <div className=" my-16 lg:max-w-[90%] ">
+          {/* <div className=" my-16 lg:max-w-[90%] ">
             <CountryFilter />
+          </div> */}
+          <div style={{ height: isSticky ? filterbarHeight : "auto" }}>
+            <div
+              ref={filterBarRef}
+              className={`transition-[box-shadow,background] duration-300 ease-in-out z-50 ${
+                isSticky
+                  ? "fixed top-16 left-0 w-full bg-white shadow-md "
+                  : "relative bg-transparent shadow-none"
+              }`}
+            >
+              <CountryFilter />
+            </div>
           </div>
           <div className="max-w-[1440px] mx-auto  sm:ml-4 sm:mr-4 xl:ml-5 xl:mr-5 my-3 ">
-            <div className="flex md:flex-col md:items-center md:mt-8 gap-8 md:gap-2 ">
+            <div className="flex md:flex-col lg:justify-center md:items-center md:mt-8 gap-8 md:gap-2 mt-4">
               <div>
                 <FilterComponents />
               </div>
